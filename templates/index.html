@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoodLens – Sentiment Analyzer</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #74ABE2, #5563DE);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      width: 400px;
+      text-align: center;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 0.5rem;
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+    button {
+      background: #fff;
+      color: #333;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .prediction {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>MoodLens</h1>
+    <form method="POST">
+      <input
+        type="text"
+        name="text_input"
+        placeholder="Enter your feeling..."
+        value="{{ user_text }}"
+      />
+      <br />
+      <button type="submit">Analyze</button>
+    </form>
+    {% if prediction %}
+      <div class="prediction">
+        Mood: {{ prediction }}
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
